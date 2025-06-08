@@ -1,2 +1,2 @@
-up89998.com:bebaspulsa:400:4Dtwin1.txt
-up81244.com:bebaspulsa:400:4Dtwin2.txt
+up89998.com:bebaspulsa:200:4Dtwin1.txt
+up81244.com:bebaspulsa:200:4Dtwin2.txt
