@@ -47,19 +47,21 @@ def wib():
     return datetime.now(pytz.timezone("Asia/Jakarta")).strftime("%Y-%m-%d %H:%M WIB")
 
 def run(playwright: Playwright) -> int:
-    nomor_saja = baca_file("config.txt")  # cuma nomor doang
     sites = baca_file_list("site.txt")
-
     pw_env = os.getenv("pw")
     ada_error = False
 
     for entry in sites:
         try:
-            # ambil site, username, bet
-            site, userid_site, bet = entry.split(':')
+            site, userid_site, bet, file_nomorbet = entry.split(':')
             full_url = f"https://{site}/lite"
             label = f"[{site.upper()}]"
 
+            if not os.path.exists(file_nomorbet):
+                print(f"❌ File nomorbet '{file_nomorbet}' tidak ditemukan untuk {userid_site}, dilewati.")
+                continue
+
+            nomor_saja = baca_file(file_nomorbet)
             nomorbet = nomor_saja + "#" + bet
             jumlah_kombinasi = parse_nomorbet(nomor_saja)
             total_bet_rupiah = int(bet) * jumlah_kombinasi
@@ -88,7 +90,6 @@ def run(playwright: Playwright) -> int:
 
             print(f"📨 Mengirim taruhan di {site}...")
             page.get_by_role("button", name="KIRIM").click()
-
             page.wait_for_selector("text=Bet Sukses!!", timeout=15000)
 
             page.get_by_role("link", name="Back to Menu").click()
@@ -114,7 +115,7 @@ def run(playwright: Playwright) -> int:
 
         except Exception as e:
             ada_error = True
-            print(f"❌ Error di {site}: {e}")
+            print(f"❌ Error di {entry}: {e}")
             try:
                 saldo = page.locator("#bal-text").inner_text()
             except:
