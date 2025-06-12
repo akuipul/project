@@ -1,8 +1,6 @@
-up81244.com:akuipul:100:3Dtwin1.txt
-up89998.com:bebaspulsa:100:3Dtwin2.txt
-up81244.com:akuipul:100:3Dtwin3.txt
-up89998.com:bebaspulsa:100:3Dtwin4.txt
-up81244.com:akuipul:100:3Dtwin5.txt
-up89998.com:bebaspulsa:100:3Dtwin6.txt
-dingdong81398.com:akuipul:100:4Dtwin2.txt
-udin80146.com:akuipul:100:4Dtwin1.txt
+dingdong81398.com:akuipul:100:3Dtwin1.txt
+udin80146.com:akuipul:100:3Dtwin2.txt
+dingdong81398.com:akuipul:100:3Dtwin3.txt
+udin80146.com:akuipul:100:3Dtwin4.txt
+dingdong81398.com:akuipul:100:3Dtwin5.txt
+udin80146.com:akuipul:100:3Dtwin6.txt
